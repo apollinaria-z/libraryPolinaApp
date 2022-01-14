@@ -23,11 +23,9 @@ public class MainClass {
         BookService bookService = new BookService();
         GenreService genreService = new GenreService();
         LibUserService libUserService = new LibUserService();
-
 //        List<Genre> genres = genreService.showGenreList();
 //        System.out.println(genres.toString());
         ConnectionPool.getInstance().init(1000, 0, 10);
-
        // List<Author> authors = authorService.showAuthorList();
       //  System.out.println(authors.toString());
 //        List<LibUser> users = libUserService.showLibUserList();
