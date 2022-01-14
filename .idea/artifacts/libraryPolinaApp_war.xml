@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="libraryPolinaApp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>libraryPolinaApp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="libraryPolinaApp-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="libraryPolinaApp:war exploded" />
+    </root>
+  </artifact>
+</component>
