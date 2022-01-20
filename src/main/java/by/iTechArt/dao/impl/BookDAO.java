@@ -54,7 +54,6 @@ public class BookDAO extends BaseImpl implements IBookDAO {
                 Book book = new Book();
                 int bookId = rs.getInt("id");
                 setBookFields(bookId, book, rs);
-
                 bookList.add(book);
             }
         } catch (SQLException e) {

@@ -7,6 +7,7 @@ import by.iTechArt.service.IGenreService;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class GenreService implements IGenreService {
     @Override
@@ -21,11 +22,11 @@ public class GenreService implements IGenreService {
     }
 
     @Override
-    public List<Genre> showGenreList() throws DAOException, SQLException {
+    public Map<Integer, Genre> showIdGenreMap() throws DAOException, SQLException {
         GenreDAO genreDAO = new GenreDAO();
         try{
             genreDAO.setConnection();
-            return genreDAO.getAllGenres();
+            return genreDAO.getAllIdsGenres();
         } finally {
             genreDAO.closeConnection();
         }
@@ -42,25 +43,4 @@ public class GenreService implements IGenreService {
         }
     }
 
-    @Override
-    public void addGenre(Genre genre) throws DAOException, SQLException {
-        GenreDAO genreDAO = new GenreDAO();
-        try{
-            genreDAO.setConnection();
-            genreDAO.createGenre(genre);
-        } finally {
-            genreDAO.closeConnection();
-        }
-    }
-
-    @Override
-    public void deleteGenre(Genre genre) throws DAOException, SQLException {
-        GenreDAO genreDAO = new GenreDAO();
-        try{
-            genreDAO.setConnection();
-            genreDAO.deleteGenre(genre);
-        } finally {
-            genreDAO.closeConnection();
-        }
-    }
 }

@@ -26,7 +26,8 @@ public class MainServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         try {
-            ConnectionPool.getInstance().init(DB_POOL_MAX_SIZE, DB_POOL_CHECK_CONNECTION_TIMEOUT, DB_POOL_START_SIZE);
+            ConnectionPool.getInstance().init(DB_POOL_MAX_SIZE,
+              DB_POOL_CHECK_CONNECTION_TIMEOUT, DB_POOL_START_SIZE);
         } catch (DAOException e) {
             logger.info(e.getMessage());
         }
@@ -47,12 +48,9 @@ public class MainServlet extends HttpServlet {
             }
             request.setAttribute("booksFromServer", allBooks);
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("welcomePage.jsp");
+        RequestDispatcher dispatcher = request
+          .getRequestDispatcher("welcomePage.jsp");
         dispatcher.forward(request, response);
-
-        // dispatcher.include(request, response);
-//        request.getRequestDispatcher("/bookServlet").include(request, response);
-   //    request.getRequestDispatcher("/libUserServlet").include(request, response);
 
     }
 

@@ -6,12 +6,13 @@
     <title>user form</title>
 </head>
 <body>
+<%@ include file="/jsp/_header.jsp" %>
 <div align="center">
     <c:if test="${libUser != null}">
-    <form name="testValid" action="/libUserServlet/update" method="post"> <!-- onsubmit="return validateForm()"-->
+    <form action="libUserServlet/libUser?action=update" method="post"> <!-- onsubmit="return validateForm()"-->
         </c:if>
         <c:if test="${libUser == null}">
-        <form action="/libUserServlet/insert" method="post">
+        <form action="libUserServlet/libUser?action=insert" method="post">
             </c:if>
             <table border="1" cellpadding="5">
                 <caption>

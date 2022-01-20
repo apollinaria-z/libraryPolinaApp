@@ -3,23 +3,26 @@
 <html>
 <head>
     <title>book form</title>
+  <div><jsp:include page="/jsp/_header.jsp" /></div>
 </head>
 <body>
 
+<%@ include file="/jsp/_header.jsp"%>
+
         <c:if test="${book != null}">
-    <form action="/bookServlet/update" method="post">
+    <form action="/bookServlet/book?action=update" method="post" enctype="multipart/form-data">
         </c:if>
         <c:if test="${book == null}">
-            <form action="/bookServlet/insert" method="post">
+            <form action="/bookServlet/book?action=insert" method="post" enctype="multipart/form-data">
         </c:if>
                 <table border="1" cellpadding="5">
                     <caption>
                         <h2>
                             <c:if test="${book != null}">
-                                Edit User
+                                Edit book
                             </c:if>
                             <c:if test="${book == null}">
-                                Add New User
+                                Add book
                             </c:if>
                         </h2>
                     </caption>
@@ -74,23 +77,31 @@
                             />
                         </td>
                     </tr>
-
-                    Select Genre:&nbsp;
-
-                        <c:forEach items="${listCategory}" var="genre">
-                            <input type="checkbox" name="selected" value="${genre.id}" checked />${genre.name}
+                  <tr>
+                    <th>Select Genre:&nbsp;</th>
+                    <td>
+                        <c:forEach items="${genreIdMap}" var="entry">
+                            <input type="checkbox" name="selectedGenre"
+                                   value="${entry.key}" checked />${entry.value}
                         </c:forEach>
-<%--String[] selectedStudentIds = request.getParameterValues("selected");-->
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <th>Images loading:</th>
+                    <td>
+                    Put an image of book:
+                      <input type="file" id="file" name="file" multiple>
+                    </td>
+                  </tr>
 
 
-<%--                    <select name="genre">--%>
-<%--                        <c:forEach var="genre" items="${genreList}">--%>
-<%--                            <option value="<c:out value='${genre}' />"--%>
-<%--                                    <c:if test="${param.selectValue == genre})"> selected </c:if>  >--%>
-<%--                                <c:out value="${genre}" />--%>
-<%--                            </option>--%>
-<%--                        </c:forEach>--%>
-<%--                    </select>--%>
+
+                  <tr>
+                    <td colspan="2" align="center">
+                      <input type="submit" value="SAVE"/>
+                    </td>
+                  </tr>
                 </table>
             </form>
     </form>

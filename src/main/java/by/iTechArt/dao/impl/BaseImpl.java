@@ -19,7 +19,7 @@ abstract class BaseImpl {
 
     public void closeConnection() throws SQLException, DAOException {
         ConnectionPool.getInstance().freeConnection(this.connection);}
-
+//////////////////////////////////////////////
     protected void closeResultSet(ResultSet... resultSets) {
         if (resultSets != null) {
             for (ResultSet rs : resultSets) {

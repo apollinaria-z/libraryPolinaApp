@@ -22,9 +22,9 @@
 <%--            <td>${book.amountAll}</td>--%>
 <%--            <td>${book.amountAvaliable}</td>--%>
             <td>
-                <a href="/edit?id=<c:out value='${book.id}' />">Edit</a>
+                <a href="/bookServlet/edit?id=<c:out value='${book.id}' />">Edit</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="/delete?id=<c:out value='${book.id}' />">Delete</a>
+                <a href="/bookServlet/delete?id=<c:out value='${book.id}' />">Delete</a>
             </td>
         </tr>
     </c:forEach>

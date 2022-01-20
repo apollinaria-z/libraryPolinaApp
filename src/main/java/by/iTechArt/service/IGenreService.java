@@ -6,12 +6,10 @@ import by.iTechArt.models.Genre;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface IGenreService {
     Genre searchGenreById(int id) throws DAOException, SQLException;
-    List<Genre> showGenreList() throws DAOException, SQLException;
+    Map<Integer, Genre> showIdGenreMap() throws DAOException, SQLException;
     int searchIdOfGenre(Genre genre)throws DAOException, SQLException;
-    void addGenre(Genre genre) throws DAOException, SQLException;
-    void deleteGenre(Genre genre) throws DAOException, SQLException;
-
 }

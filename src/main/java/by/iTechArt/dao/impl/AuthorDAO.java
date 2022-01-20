@@ -65,11 +65,7 @@ public class AuthorDAO extends BaseImpl implements IAuthorDAO {
             statement.setInt(1,id);
             rs = statement.executeQuery();
             if (rs.next()) {
-               // authorSet(author, rs);
-                author.setId(rs.getInt("id"));
-                author.setFirstname(rs.getString("firstname"));
-                author.setSurname(rs.getString("surname"));
-                author.setImagePath(rs.getString("imagePath"));
+                authorSet(author, rs);
             }
         } catch (SQLException e){
             logger.info(e.getMessage());
@@ -105,6 +101,7 @@ public class AuthorDAO extends BaseImpl implements IAuthorDAO {
             try{
                 statement = connection.prepareStatement(SQLAuthor.UPDATE.QUERY);
                 statementSet(author, statement);
+              statement.setInt(4, id);
                 statement.executeUpdate();
             } catch (SQLException e){
                 logger.info(e.getMessage());

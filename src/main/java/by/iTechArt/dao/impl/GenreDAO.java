@@ -10,7 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GenreDAO extends BaseImpl implements IGenreDAO {
 
@@ -19,8 +21,7 @@ public class GenreDAO extends BaseImpl implements IGenreDAO {
     enum SQLGenre {
         GETBYID("SELECT name from genre where id = (?)"),
         GETBYGENRE("SELECT id from genre where name = (?)"),
-        INSERT("INSERT INTO genre (id, name) VALUES (DEFAULT, (?)"),
-        DELETE("DELETE FROM genre WHERE name = (?)");
+        GETLIST("SELECT * FROM genre");
         String QUERY;
 
         SQLGenre(String QUERY) {
@@ -69,44 +70,15 @@ public class GenreDAO extends BaseImpl implements IGenreDAO {
         return id;
     }
 
-    @Override
-    public void createGenre(Genre genre) throws DAOException {
-        PreparedStatement statement = null;
-        try {
-            statement = connection.prepareStatement(SQLGenre.INSERT.QUERY);
-            statement.setString(1, genre.name());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            logger.info(e.getMessage());
-        } finally {
-            closeStatement(statement);
-        }
-    }
-
-    @Override
-    public void deleteGenre(Genre genre) throws DAOException {
-        PreparedStatement statement = null;
-        try {
-            statement = connection.prepareStatement(SQLGenre.DELETE.QUERY);
-            statement.setString(1, genre.name());
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            logger.info(e.getMessage());
-        } finally {
-            closeStatement(statement);
-        }
-    }
-
-    public List<Genre> getAllGenres() {
-        List<Genre> genreList = new ArrayList<>();
-        String query = "SELECT * FROM genre";
+    public Map<Integer,Genre> getAllIdsGenres() {
+        Map<Integer, Genre> genreMap = new HashMap<>();
         PreparedStatement statement = null;
         ResultSet rs = null;
         try {
-            statement = connection.prepareStatement(query);
+            statement = connection.prepareStatement(SQLGenre.GETLIST.QUERY);
             rs = statement.executeQuery();
             while (rs.next()) {
-                genreList.add(Genre.valueOf(rs.getString("name")));
+              genreMap.put(rs.getInt("id"), Genre.valueOf(rs.getString("name")));
             }
         } catch (SQLException e) {
             logger.info(e.getMessage());
@@ -114,7 +86,7 @@ public class GenreDAO extends BaseImpl implements IGenreDAO {
             closeResultSet(rs);
             closeStatement(statement);
         }
-        return genreList;
+        return genreMap;
     }
 
 }

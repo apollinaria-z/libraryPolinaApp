@@ -10,8 +10,21 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
-        <url-pattern></url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
+  <servlet>
+    <servlet-name>BookServlet</servlet-name>
+    <servlet-class>by.iTechArt.servlets.BookServlet</servlet-class>
+    <multipart-config>
+      <max-file-size>10485760</max-file-size>
+      <max-request-size>20971520</max-request-size>
+      <file-size-threshold>5242880</file-size-threshold>
+    </multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookServlet</servlet-name>
+    <url-pattern>/bookServlet/*</url-pattern>
+  </servlet-mapping>
     <servlet>
         <servlet-name>LibUserServlet</servlet-name>
         <servlet-class>by.iTechArt.servlets.LibUserServlet</servlet-class>
@@ -20,20 +33,9 @@
         <servlet-name>LibUserServlet</servlet-name>
         <url-pattern>/libUserServlet/*</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>BookServlet</servlet-name>
-        <servlet-class>by.iTechArt.servlets.BookServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>BookServlet</servlet-name>
-        <url-pattern>/bookServlet/*</url-pattern>
-    </servlet-mapping>
-    <welcome-file-list>
-    <welcome-file>welcomePage.jsp</welcome-file>
-    </welcome-file-list>
-<!--    <welcome-file-list>-->
-<!--        <welcome-file>libUserList.jsp</welcome-file>-->
-<!--    </welcome-file-list>-->
+<!--<welcome-file-list>-->
+<!--  <welcome-file>fileupload.jsp</welcome-file>-->
+<!--</welcome-file-list>-->
 <!--    <error-page>-->
 <!--        <exception-type>java.lang.Exception</exception-type>-->
 <!--        <location>/jsp/error.jsp</location>-->

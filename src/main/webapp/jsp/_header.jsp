@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="css/pageStyle.css">
 </head>
 <body>
-<div class="header">
-    <a href="" class="href_class">LIBRARY</a>
+<div id="header">
+    <a href="/" class="href_class">LIBRARY</a>
 </div>
 </body>
 </html>

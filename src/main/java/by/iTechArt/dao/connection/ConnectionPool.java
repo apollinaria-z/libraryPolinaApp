@@ -50,7 +50,8 @@ public class ConnectionPool {
     public synchronized void freeConnection(Connection connection) throws DAOException {
         try {
             if (connection.isValid(checkConnectionTimeout)) {
-                connection.clearWarnings();
+     ////////////////////////////////////////////
+              connection.clearWarnings();
                 connection.setAutoCommit(true);
                 takenConnections.remove(connection);
                 availableConnections.add(connection);

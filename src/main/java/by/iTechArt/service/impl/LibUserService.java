@@ -59,7 +59,6 @@ public class LibUserService implements ILibUserService {
         try{
             libUserDAO.setConnection();
             serviceValidator.validationLibUserFields(libUser);
-            serviceValidator.validationUnique(libUser, libUserDAO.getAllLibUsers());
             libUserDAO.updateLibUser(id,libUser);
         } catch (ServiceException e) {
             logger.info("validation problem");
