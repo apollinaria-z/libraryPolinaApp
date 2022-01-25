@@ -52,6 +52,14 @@ public class Book {
         this.publicationYear = publicationYear;
         this.pages = pages;
     }
+  public Book(String nameRu, String nameOrigin, int cost, int dayPrice, int publicationYear, int pages) {
+    this.nameRu = nameRu;
+    this.nameOrigin = nameOrigin;
+    this.cost = cost;
+    this.dayPrice = dayPrice;
+    this.publicationYear = publicationYear;
+    this.pages = pages;
+  }
 
     public int getId() {
         return id;

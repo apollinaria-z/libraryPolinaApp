@@ -5,13 +5,13 @@
     <title>list of library users</title>
 </head>
 <body>
-<div><jsp:include page="/jsp/_header.jsp" /></div>
+<div>
+  <jsp:include page="/jsp/_header.jsp" />
+</div>
 
 </br>
 </br>
-<%--<div>--%>
-<%--    <jsp:include page="libUserForm.jsp"/>--%>
-<%--</div>--%>
+
 <div>
   <a href="libUser?action=new">New User</a>
 </div>

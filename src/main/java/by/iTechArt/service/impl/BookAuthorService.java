@@ -12,37 +12,38 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class BookAuthorService implements IBookAuthorService {
-    static final Logger logger = LogManager.getLogger(LibUserService.class);
-    @Override
-    public void addBookAuthorPairs(Book book) throws DAOException, SQLException {
-        BookAuthorDAO bookAuthorDAO = new BookAuthorDAO();
-        try{
-            bookAuthorDAO.setConnection();
-            bookAuthorDAO.createBookAuthorPairs(book);
-        } finally {
-            bookAuthorDAO.closeConnection();
-        }
-    }
+  static final Logger logger = LogManager.getLogger(LibUserService.class);
 
-    @Override
-    public void deleteBookAuthorPairs(int bookId) throws DAOException, SQLException {
-        BookAuthorDAO bookAuthorDAO = new BookAuthorDAO();
-        try{
-            bookAuthorDAO.setConnection();
-            bookAuthorDAO.deleteBookAuthorPairs(bookId);
-        } finally {
-            bookAuthorDAO.closeConnection();
-        }
+  @Override
+  public void addBookAuthorPairs(Book book) throws DAOException, SQLException {
+    BookAuthorDAO bookAuthorDAO = new BookAuthorDAO();
+    try {
+      bookAuthorDAO.setConnection();
+      bookAuthorDAO.createBookAuthorPairs(book);
+    } finally {
+      bookAuthorDAO.closeConnection();
     }
+  }
 
-    @Override
-    public List<Author> showAuthorsOfBook(int bookId) throws DAOException, SQLException {
-        BookAuthorDAO bookAuthorDAO = new BookAuthorDAO();
-        try{
-            bookAuthorDAO.setConnection();
-            return bookAuthorDAO.getAuthorsOfBook(bookId);
-        } finally {
-            bookAuthorDAO.closeConnection();
-        }
+  @Override
+  public void deleteBookAuthorPairs(int bookId) throws DAOException, SQLException {
+    BookAuthorDAO bookAuthorDAO = new BookAuthorDAO();
+    try {
+      bookAuthorDAO.setConnection();
+      bookAuthorDAO.deleteBookAuthorPairs(bookId);
+    } finally {
+      bookAuthorDAO.closeConnection();
     }
+  }
+
+  @Override
+  public List<Author> showAuthorsOfBook(int bookId) throws DAOException, SQLException {
+    BookAuthorDAO bookAuthorDAO = new BookAuthorDAO();
+    try {
+      bookAuthorDAO.setConnection();
+      return bookAuthorDAO.getAuthorsOfBook(bookId);
+    } finally {
+      bookAuthorDAO.closeConnection();
+    }
+  }
 }

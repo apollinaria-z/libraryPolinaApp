@@ -33,6 +33,14 @@
         <servlet-name>LibUserServlet</servlet-name>
         <url-pattern>/libUserServlet/*</url-pattern>
     </servlet-mapping>
+  <servlet>
+    <servlet-name>AuthorServlet</servlet-name>
+    <servlet-class>by.iTechArt.servlets.AuthorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthorServlet</servlet-name>
+    <url-pattern>/authorServlet/*</url-pattern>
+  </servlet-mapping>
 <!--<welcome-file-list>-->
 <!--  <welcome-file>fileupload.jsp</welcome-file>-->
 <!--</welcome-file-list>-->

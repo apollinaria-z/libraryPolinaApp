@@ -20,26 +20,29 @@ import java.util.stream.Collectors;
 
 public class MainClass {
   public static void main(String[] args) throws SQLException, DAOException {
-    ConnectionPool.getInstance().init(1000, 0, 10);
-
-    AuthorService authorService = new AuthorService();
-    BookService bookService = new BookService();
-    GenreService genreService = new GenreService();
-    LibUserService libUserService = new LibUserService();
-    BookGenreService bookGenreService = new BookGenreService();
-    BookImageService bookImageService = new BookImageService();
-    BookAuthorService bookAuthorService = new BookAuthorService();
-    //--------authorService checking-------------
-//    System.out.println(authorService.searchBySurname("Rowling").getFirstname());
-//    System.out.println(authorService.searchByID(5).getFirstname());
-//    authorService.addAuthor(new Author("Steven", "King", "some/path/yes"));
-//    System.out.println(authorService.showAuthorList().get(10).getFirstname());
-//    authorService.deleteAuthor(8);
-//    authorService.editAuthor(5, new Author("new3AU", "thor", "image"));
-//    System.out.println(authorService.searchByID(5).getFirstname());
-//--------genreService checking-------------
-    Map<Integer,Genre> genres = genreService.showIdGenreMap();
-    System.out.println(genres.toString());
+//    String genresStringMassive[] = {"1","4","5"};
+//    List<Genre> genreList = Arrays.stream(genresStringMassive).map(Genre::valueOf).collect(Collectors.toList());
+//    System.out.println(genreList.toString());
+//    ConnectionPool.getInstance().init(1000, 0, 10);
+//
+//    AuthorService authorService = new AuthorService();
+//    BookService bookService = new BookService();
+//    GenreService genreService = new GenreService();
+//    LibUserService libUserService = new LibUserService();
+//    BookGenreService bookGenreService = new BookGenreService();
+//    BookImageService bookImageService = new BookImageService();
+//    BookAuthorService bookAuthorService = new BookAuthorService();
+//    //--------authorService checking-------------
+////    System.out.println(authorService.searchBySurname("Rowling").getFirstname());
+////    System.out.println(authorService.searchByID(5).getFirstname());
+////    authorService.addAuthor(new Author("Steven", "King", "some/path/yes"));
+////    System.out.println(authorService.showAuthorList().get(10).getFirstname());
+////    authorService.deleteAuthor(8);
+////    authorService.editAuthor(5, new Author("new3AU", "thor", "image"));
+////    System.out.println(authorService.searchByID(5).getFirstname());
+////--------genreService checking-------------
+//    Map<Integer,Genre> genres = genreService.showIdGenreMap();
+//    System.out.println(genres.toString());
 //    System.out.println(genreService.searchGenreById(6));
 //    System.out.println(genreService.searchIdOfGenre(Genre.valueOf("SCIFI")));
 //--------bookGenreService cheking----------

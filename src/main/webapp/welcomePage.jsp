@@ -2,15 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-
+  <title>welcome page</title>
 </head>
 <body>
-
-<jsp:include page="/jsp/_header.jsp" />
+<div><%@include file="/jsp/_header.jsp" %></div>
 <h2>Welcome page of library</h2>
 <h2>
 
-  <a href="${pageContext.request.contextPath}/bookServlet/book?action=new">Create new book</a>
+  <a href="${pageContext.request.contextPath}/bookServlet/book?action=ask">Create new book</a>
   &nbsp;
   <a href="${pageContext.request.contextPath}/libUserServlet/libuser?action=list">Reader management</a>
 

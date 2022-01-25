@@ -95,11 +95,12 @@ public class LibUserServlet extends HttpServlet {
     request.setAttribute("libUser", realLibUser);
     dispatcher.forward(request, response);
   }
+
   private void updateLibUser(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException {
     int id = Integer.parseInt(request.getParameter("id"));
     LibUser libUser = getLibUserWithParameters(request);
-     try {
+    try {
       libUserService.editLibUser(id, libUser);
     } catch (DAOException | SQLException e) {
       logger.info(e.getMessage());
@@ -115,7 +116,6 @@ public class LibUserServlet extends HttpServlet {
     } catch (DAOException | SQLException e) {
       logger.info(e.getMessage());
     }
-   // response.sendRedirect("/libUserServlet/list");
     response.sendRedirect("/libUserServlet/libUser?action=list");
   }
 
@@ -129,9 +129,9 @@ public class LibUserServlet extends HttpServlet {
     } catch (DAOException | SQLException e) {
       logger.info(e.getMessage());
     }
-
     response.sendRedirect("/libUserServlet/libUser?action=list");
   }
+
   private LibUser getLibUserWithParameters(HttpServletRequest request) throws ServletException {
     String name = request.getParameter("firstname");
     String surname = request.getParameter("surname");
@@ -147,7 +147,7 @@ public class LibUserServlet extends HttpServlet {
     LocalDate dateOfBirth = LocalDate.parse(dateOfBirthString);
     String email = request.getParameter("email");
     LibUser libUser = new LibUser(name, surname, middlename, passportID, address, dateOfBirth, email);
-  return libUser;
+    return libUser;
   }
 
 }

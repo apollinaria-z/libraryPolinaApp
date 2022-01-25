@@ -12,6 +12,7 @@
         <th>RussianName</th>
         <th>Genres</th>
         <th>publicationYear</th>
+      <th>authors</th>
         <th>Action</th>
     </tr>
     <c:forEach items="${booksFromServer}" var="book">
@@ -19,7 +20,7 @@
             <td>${book.nameRu}</td>
             <td>${book.genreList}</td>
             <td>${book.publicationYear}</td>
-<%--            <td>${book.amountAll}</td>--%>
+            <td>${book.authorList}</td>
 <%--            <td>${book.amountAvaliable}</td>--%>
             <td>
                 <a href="/bookServlet/edit?id=<c:out value='${book.id}' />">Edit</a>

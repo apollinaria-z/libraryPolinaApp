@@ -46,12 +46,9 @@ public class ServiceValidator {
     }
     public void validationBook(Book book) throws ServiceException {
         if (isNull(book) || ("".equals(book.getNameRu()))
-                || ("".equals(book.getGenreList()))
                 || ("".equals(book.getCost()))
-                || ("".equals(book.getAuthorList()))
-                || ("".equals(book.getImagePathList()))
         ) {
-            logger.info("NameRU, Genre, Authors, Cost, BookImage should not be empty.");
+            logger.info("NameRU, Cost should not be empty.");
             throw new ServiceException("Invalid Book");
         }
     }
